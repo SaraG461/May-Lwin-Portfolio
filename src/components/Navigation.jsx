@@ -20,15 +20,19 @@ const Navigation = () => {
   };
 
   useEffect(() => {
-    // Detect scroll
+    // Scroll detection
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
 
-    // Detect dark mode
-    const checkDark = () => setIsDarkMode(document.documentElement.classList.contains("dark"));
+    // Dark mode detection
+    const checkDark = () =>
+      setIsDarkMode(document.documentElement.classList.contains("dark"));
     checkDark(); // initial
     const observer = new MutationObserver(checkDark);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -43,24 +47,39 @@ const Navigation = () => {
     { href: "#contact", label: "Contact" },
   ];
 
-  // Compute link colors dynamically
-  const getLinkClass = () => {
-    if (isScrolled) return "text-black hover:text-gray-400 dark:text-white dark:hover:text-gray-400";
-    return isDarkMode ? "text-white hover:text-gray-300" : "text-black hover:text-gray-600";
-  };
+  // Navbar background based on scroll & dark mode
+  const navBgClass = isScrolled
+    ? isDarkMode
+      ? "bg-gray-900/95 backdrop-blur-md shadow-sm"
+      : "bg-white/95 backdrop-blur-md shadow-sm"
+    : "bg-transparent";
+
+  // Link color based on scroll & dark mode
+  const linkClass = isScrolled
+    ? isDarkMode
+      ? "text-white hover:text-gray-300"
+      : "text-black hover:text-gray-600"
+    : isDarkMode
+    ? "text-white hover:text-gray-300"
+    : "text-black hover:text-gray-600";
+
+  // Logo color
+  const logoClass = isScrolled
+    ? isDarkMode
+      ? "text-white"
+      : "text-black"
+    : isDarkMode
+    ? "text-white"
+    : "text-black";
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-transparent"
-      }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${navBgClass}`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <div
-            className={`text-xl font-bold transition-colors cursor-pointer hover:opacity-80 ${
-              isScrolled ? "text-black" : isDarkMode ? "text-white" : "text-black"
-            }`}
+            className={`text-xl font-bold transition-colors cursor-pointer hover:opacity-80 ${logoClass}`}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             May Lwin
@@ -71,7 +90,7 @@ const Navigation = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className={`transition-colors ${getLinkClass()}`}
+                className={`transition-colors ${linkClass}`}
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection(item.href);
@@ -86,7 +105,13 @@ const Navigation = () => {
           <button
             onClick={toggleMobileMenu}
             className={`md:hidden p-2 transition-colors cursor-pointer ${
-              isScrolled ? "text-gray-600 hover:text-black" : "text-gray-700 hover:text-black"
+              isScrolled
+                ? isDarkMode
+                  ? "text-white hover:text-gray-300"
+                  : "text-gray-700 hover:text-black"
+                : isDarkMode
+                ? "text-white hover:text-gray-300"
+                : "text-gray-700 hover:text-black"
             }`}
           >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

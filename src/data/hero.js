@@ -1,18 +1,18 @@
 export const heroData = {
   greeting: "Hello, I'm",
   name: "May Tharaphi Lwin",
-  role: [
-    "A Frontend Developer",
-    "A UI/UX Enthusiast",
-    "Backend Developer",
-    "AI Driven Developer",
-  ],
+ roles: [
+  "Software Engineering & Application Development",
+  "Full-Stack Web Development",
+  "AI & Machine Learning Projects",
+  "Cloud & Database Systems"
+],
   description:
-    "I am a passionate Software developer with a knack for creating engaging and user-friendly web applications, mobile applications, AI/ML applications and UI/UX design. With a strong foundation in React, Python, C#, Java, and Flutter, with full-stack capabilities and a strong focus on creating intuitive, user-friendly digital experiences.Passionate about building intuitive, engaging, and high-performance digital experiences.",
+    "I am a passionate Software Engineer with experience in developing data-driven web applications, mobile applications, AI/ML projects, and database-driven solutions. I have a strong foundation in Python, React, C#, Java, JavaScript, and Flutter, with full-stack development capabilities. My work focuses on building scalable, high-performance, and user-friendly digital experiences, combining analytical modeling, clean SDLC practices, and collaborative development to deliver innovative software solutions.",
     stats:[
         {number: "20+", label:"Projects Completed"},
-        {number: "15+", label:"Happy Clients"},
-        {number: "3", label:"Years of Academic Experience"},
+        {number: "3+", label: "Competitions & Awards" },
+        {number: "3+", label:"Years of Academic Experience"},
     ],
     socialLinks: [
         {
@@ -27,7 +27,7 @@ export const heroData = {
         },
         {
             name: "Email",
-            url: "mailto:saragrace461@gmail.com",
+            url: "mailto: saragrace461@gmail.com",
             icon: "Mail"
         }
     ],

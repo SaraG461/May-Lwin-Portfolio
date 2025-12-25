@@ -9,7 +9,7 @@ export const projects = [
 
     {
         title: "Elaros Occupational Covid-19 health app, team-based project",
-        description:"Our Client Elaros is looking for monile application which can support long Covid suffers through a application.It will allow for the long COVID sufferers to monitor symptoms by carrying out questionnaires and gain information through the resources section that may help to reduce their symptoms.",
+        description:"Our Client Elaros is looking for mobile application which can support long Covid suffers through a application. It will allow for the long COVID sufferers to monitor symptoms by carrying out questionnaires and gain information through the resources section that may help to reduce their symptoms.",
         tech: [ "Flutter","Dart","Firebase" ],
         github: "https://github.com/JokerZ75/Elaros-OH.git"
     },
