@@ -1,6 +1,6 @@
 export const contactLinks = [
  {
-    herd: "mailto: saragrace461@gmail.com",
+    href: "mailto: saragrace461@gmail.com",
     label: "Email",
     className: "bg-black text-white px-4 py-2 rounded-lg hover: bg-gray-800 trasnsition-colors text-sm font-medium"
  },

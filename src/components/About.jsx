@@ -62,18 +62,14 @@ const About = ({ hasAnimated }) => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className={`text-lg mb-6 ${isDarkMode ? "text-gray-300" : "text-gray-700"}`}>
-                I am a Software Engineering graduate with hands-on academic experience in full-stack
-                development, AI-driven applications, and database systems. My work spans Python-based
+                I am a Software Engineering graduate with academic experience in full-stack
+                development, AI-driven applications, and database systems. I specialize in Python-based
                 backend development, React frontends, and cloud-ready solutions using modern development
                 tools. I am passionate about building scalable, user-friendly software and enjoy working
-                collaboratively to turn ideas into functional, high-quality applications.
+                collaboratively to turn ideas into high-quality, real-world applications.
               </p>
 
-              <div className="flex space-x-4">
-                <Github className={`w-6 h-6 cursor-pointer transition-colors ${isDarkMode ? "text-white hover:text-gray-300" : "text-gray-600 hover:text-black"}`} />
-                <Linkedin className={`w-6 h-6 cursor-pointer transition-colors ${isDarkMode ? "text-white hover:text-gray-300" : "text-gray-600 hover:text-black"}`} />
-                <Mail className={`w-6 h-6 cursor-pointer transition-colors ${isDarkMode ? "text-white hover:text-gray-300" : "text-gray-600 hover:text-black"}`} />
-              </div>
+              
             </div>
 
             <div className="grid grid-cols-2 gap-6">

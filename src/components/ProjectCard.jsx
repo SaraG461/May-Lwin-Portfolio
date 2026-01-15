@@ -1,26 +1,33 @@
 import React from "react";
-import { Github, ExternalLink } from "lucide-react";
+import { Github } from "lucide-react";
 
 const ProjectCard = ({ project, isDarkMode }) => {
   return (
     <div
       className={`
-        group flex flex-col h-full rounded-xl border transition-all duration-300
+        group relative flex flex-col rounded-xl border transition-all duration-300
         hover:-translate-y-1 hover:shadow-xl
         ${isDarkMode ? "bg-gray-800 border-white/20" : "bg-white border-gray-200"}
       `}
     >
-      {/* Thumbnail / Header */}
+      {/* Background box behind image */}
       <div
         className={`
-          h-40 flex items-center justify-center
-          bg-gradient-to-br
-          ${isDarkMode ? "from-gray-700 to-gray-800" : "from-gray-100 to-gray-200"}
+          absolute top-2 left-2 right-2 h-[calc(100%/2.5)] rounded-t-xl
+          ${isDarkMode ? "bg-gray-700/30" : "bg-gray-200/50"}
+          -z-10
         `}
-      >
-        <div className={`text-5xl font-bold ${isDarkMode ? "text-gray-400" : "text-gray-300"}`}>
-          {project.title.charAt(0)}
-        </div>
+      />
+
+      {/* Image container with fixed aspect ratio */}
+      <div className="w-full aspect-[16/9] overflow-hidden rounded-t-xl flex items-center justify-center">
+        {project.image && (
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+          />
+        )}
       </div>
 
       {/* Content */}
@@ -28,7 +35,7 @@ const ProjectCard = ({ project, isDarkMode }) => {
         {/* Project Title */}
         <h3
           className={`
-            text-base font-semibold mb-2 transition-colors
+            text-lg font-semibold mb-2 transition-colors
             ${isDarkMode ? "text-white group-hover:text-gray-300" : "text-black group-hover:text-gray-600"}
           `}
         >
@@ -37,44 +44,46 @@ const ProjectCard = ({ project, isDarkMode }) => {
 
         {/* Project Description */}
         <p
-          className={`text-sm flex-grow leading-relaxed ${
+          className={`text-sm flex-grow leading-relaxed mb-4 ${
             isDarkMode ? "text-gray-300" : "text-gray-600"
           }`}
         >
           {project.description}
         </p>
 
-        {/* Project Links */}
-        {(project.github || project.demo) && (
-          <div className="flex gap-3 mt-4">
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`
-                  transition-colors
-                  ${isDarkMode ? "text-gray-400 hover:text-white" : "text-gray-500 hover:text-black"}
-                `}
-              >
-                <Github className="w-5 h-5" />
-              </a>
-            )}
-            {project.demo && (
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`
-                  transition-colors
-                  ${isDarkMode ? "text-gray-400 hover:text-white" : "text-gray-500 hover:text-black"}
-                `}
-              >
-                <ExternalLink className="w-5 h-5" />
-              </a>
-            )}
-          </div>
-        )}
+        {/* Tech tags */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tech.map((tech, techIndex) => (
+            <span
+              key={techIndex}
+              className={`
+                px-3 py-1 text-xs font-medium rounded-full border transition-all duration-300
+                ${isDarkMode 
+                  ? "bg-cyan-400/20 text-cyan-200 border-white/15 hover:-translate-y-0.5 hover:shadow-lg" 
+                  : "bg-gradient-to-r from-slate-100 via-indigo-100 to-slate-200 text-slate-800 border border-slate-300 hover:border-slate-400 hover:-translate-y-0.5 hover:shadow-md"
+                }
+              `}
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        {/* GitHub link */}
+        <div className="flex space-x-4 mt-auto">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`
+              flex items-center gap-2 text-sm transition-colors
+              ${isDarkMode ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-black"}
+            `}
+          >
+            <Github className="w-5 h-5" />
+            <span>Code</span>
+          </a>
+        </div>
       </div>
     </div>
   );

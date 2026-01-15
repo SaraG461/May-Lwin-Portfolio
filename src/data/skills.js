@@ -2,49 +2,36 @@ export const skills = [
   {
     category: "Frontend",
     items: [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "React",
-      "TypeScript",
-      "UI/UX Design"
-    ]
+      { name: "HTML", level: 4, projects: 5 },
+      { name: "CSS", level: 4, projects: 5 },
+      { name: "JavaScript", level: 3, projects: 4 },
+      { name: "React", level: 3, projects: 3 },
+      { name: "TypeScript", level: 2, projects: 1 },
+    ],
   },
   {
     category: "Backend",
     items: [
-      "Python",
-      "C#/.NET Core",
-      "Java",
-      "PHP",
-      "Flask",
-      "REST APIs"
-    ]
+      { name: "Python", level: 3, projects: 3 },
+      { name: "Flask", level: 2, projects: 1 },
+      { name: "Java", level: 2, projects: 2 },
+      { name: "C# / .NET", level: 2, projects: 1 },
+      { name: "REST APIs", level: 3, projects: 3 },
+    ],
   },
   {
-    category: "Cloud & Database",
+    category: "Databases & Cloud",
     items: [
-      "Firebase",
-      "SQL Server",
-      "MySQL"
-    ]
+      { name: "MySQL", level: 3, projects: 3 },
+      { name: "SQL Server", level: 2, projects: 1 },
+      { name: "Firebase", level: 2, projects: 1 },
+    ],
   },
   {
-    category: "Mobile Apps",
+    category: "Mobile & Robotics",
     items: [
-      "Flutter",
-      "React Native"
-    ]
+      { name: "Flutter", level: 2, projects: 1 },
+      { name: "VEX VR (Robotics)", level: 2, projects: 1 },
+    ],
   },
-  {
-    category: "Tools & Methodologies",
-    items: [
-      "Git & GitHub",
-      "Agile Methodology",
-      "VEX VR",
-      "Figma",
-      "Cisco Packet Tracer",
-      "Embedded Systems"
-    ]
-  }
 ];
