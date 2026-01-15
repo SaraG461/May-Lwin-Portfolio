@@ -171,8 +171,20 @@ const Hero = ({ isDarkMode, hasAnimated = { hero: true } }) => {
             ))}
           </div>
 
-          
-          
+          {/* Scroll Indicator */}
+          <div className="relative w-full flex justify-center mt-8">
+              <div className="animate-bounce">
+                <button
+                  onClick={scrollToAbout}
+                  className={`flex flex-col items-center text-sm ${
+                    isDarkMode ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-black"
+                  }`}
+                >
+                  <span className="mb-2">Learn More</span>
+                  <ArrowDown className="w-6 h-6" />
+                </button>
+              </div>
+        </div>
         </div>
       </div>
       {/* Floating Elements */}
