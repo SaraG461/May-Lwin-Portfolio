@@ -8,7 +8,7 @@ const About = ({ hasAnimated }) => {
   useEffect(() => {
     const checkDark = () =>
       setIsDarkMode(document.documentElement.classList.contains("dark"));
-    checkDark(); // initial
+    checkDark(); 
     const observer = new MutationObserver(checkDark);
     observer.observe(document.documentElement, {
       attributes: true,

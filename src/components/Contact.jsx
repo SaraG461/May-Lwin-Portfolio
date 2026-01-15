@@ -36,7 +36,7 @@ const Contact = ({ hasAnimated, isDarkMode }) => {
           >
             I'm a passionate Software Developer, building scalable and user-friendly web
             applications using React, Python, and JavaScript. I'm eager to start my early
-            career by contributing to innovative projects that make a real impact. Feel free
+            career by contributing to innovative projects that make a positive impact to society. Feel free
             to reach out for job opportunities or just to say hello!
           </p>
 
